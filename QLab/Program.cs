@@ -1,5 +1,6 @@
 ﻿namespace QLab;
 public class Program
+// אריאל יהודה יצחק זדה
 
 {
     public static void Main(string[] args)
@@ -17,6 +18,25 @@ public class Program
         qCopy.Insert(13);
         Console.WriteLine(q);
         Console.WriteLine(qCopy);
+
+        bool isIn = IfNumInQ(q,3);
+        Console.WriteLine(isIn);
+    }
+    public static bool IfNumInQ(Queue<int> q,int num) 
+    // הפונקציה מחזירה אם המספר נמצא בתור
+    {
+        int ezer = 0;
+        bool numInQ = false;
+        Queue<int> qCopy = SetQCopy(q);
+        while (!qCopy.IsEmpty()) 
+        {
+            ezer = qCopy.Remove();
+            if (num == ezer) 
+            {
+                numInQ =  true;
+            }
+        }
+        return numInQ;
     }
 
     public static Queue<int> SetQCopy(Queue<int> q)
